@@ -8,18 +8,18 @@ import {createProducts} from "../Features/product/productSlice"
 
 
 export default function ProductForm() {
-    const [productInfo, setProductInfo] = useState({ product: '', price: 0, details: '', quantity: 0, image: ''})
+    const [productData, setProductData] = useState({ product: '', price: '', details: '', quantity: '', image: ''})
 
     const dispatch = useDispatch()
 
     const clear = () => {
-        setProductInfo({ product: '', price: 0, details: '', quantity: 0, image: '' });
+        setProductData({ product: '', price: '', details: '', quantity: '', image: '' });
       };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(productInfo)
-        dispatch(createProducts({productInfo}))
+        console.log(productData)
+        dispatch(createProducts({productData}))
         
         clear();
 
@@ -43,8 +43,8 @@ export default function ProductForm() {
                                 variant="outlined" 
                                 label="Product" 
                                 fullWidth 
-                                value={productInfo.product} 
-                                onChange={(e) => setProductInfo({ ...productInfo, product: e.target.value })} 
+                                value={productData.product} 
+                                onChange={(e) => setProductData({ ...productData, product: e.target.value })} 
                             />
                             <TextField 
                                 sx={{m:1, p:1, mx: 'auto'}}
@@ -52,8 +52,8 @@ export default function ProductForm() {
                                 variant="outlined" 
                                 label="Price" 
                                 fullWidth 
-                                value={productInfo.price} 
-                                onChange={(e) => setProductInfo({ ...productInfo, price: e.target.value })} 
+                                value={productData.price} 
+                                onChange={(e) => setProductData({ ...productData, price: e.target.value })} 
                             />
                             <TextField
                                 sx={{m:1, p:1, mx: 'auto'}} 
@@ -61,8 +61,8 @@ export default function ProductForm() {
                                 variant="outlined" 
                                 label="Details" 
                                 fullWidth 
-                                value={productInfo.details} 
-                                onChange={(e) => setProductInfo({ ...productInfo, details: e.target.value })} 
+                                value={productData.details} 
+                                onChange={(e) => setProductData({ ...productData, details: e.target.value })} 
                             />
                             <TextField
                                 sx={{m:1, p:1, mx: 'auto'}} 
@@ -70,14 +70,14 @@ export default function ProductForm() {
                                 variant="outlined" 
                                 label="Quantity" 
                                 fullWidth 
-                                value={productInfo.quantity} 
-                                onChange={(e) => setProductInfo({ ...productInfo, quantity: e.target.value })} 
+                                value={productData.quantity} 
+                                onChange={(e) => setProductData({ ...productData, quantity: e.target.value })} 
                             />
                             <div>
                                 <FileBase 
                                     type="file" 
                                     multiple={false} 
-                                    onDone={({ base64 }) => setProductInfo({ ...productInfo, image: base64 })}
+                                    onDone={({ base64 }) => setProductData({ ...productData, image: base64 })}
                                 />
                             </div>
                             <Button 

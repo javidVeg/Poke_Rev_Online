@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = '/api/product'
+const API_URL = 'http://localhost:5003/api/product'
 
 //! Create new product
 
@@ -12,9 +12,13 @@ const createProduct = async (productData, token) => {
     }
 
     const response = await axios.post( API_URL, productData, config)
+    console.log(API_URL)
+    console.log(productData)
+    console.log(config)
     console.log(response)
+   
 
-    return response.data
+    return response.data,  console.log(response.data)
 }
 
 //! Get product
