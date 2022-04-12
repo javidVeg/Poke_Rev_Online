@@ -18,11 +18,10 @@ export default function ProductForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(productData)
-        dispatch(createProducts({productData}))
+        dispatch(createProducts(productData))
+        clear()
         
-        clear();
-
+        
     }
 
   return (

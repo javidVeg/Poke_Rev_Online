@@ -7,14 +7,13 @@ const API_URL = 'http://localhost:5003/api/product'
 const createProduct = async (productData, token) => {
     const config = {
         headers: {
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
+            
+
         }
     }
-
+    
     const response = await axios.post( API_URL, productData, config)
-    console.log(API_URL)
-    console.log(productData)
-    console.log(config)
     console.log(response)
    
 

@@ -28,7 +28,7 @@ const createProducts = asyncHandler(async (req, res) => {
       res.status(400)
       throw new Error('Please add a text field')
     }
-    const products = new Products({
+    const products = await Products.create({
             
         // _id: randomString(),
         product: req.body.product,
@@ -38,7 +38,7 @@ const createProducts = asyncHandler(async (req, res) => {
         image: req.body.image,
     });
     
-    await products.save();
+    // await products.save();
 
   
     res.status(200).json(products)
