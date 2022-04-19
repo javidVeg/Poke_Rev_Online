@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Box } from '@mui/system'
 import FileBase from 'react-file-base64';
@@ -16,13 +16,15 @@ export default function ProductForm() {
         setProductData({ product: '', price: '', details: '', quantity: '', image: '' });
       };
 
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         dispatch(createProducts(productData))
         clear()
-        
-        
+        window.location.reload(false)
+       
     }
+
 
   return (
     <div>

@@ -1,13 +1,14 @@
 import { Link, useNavigate} from "react-router-dom";
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
+import {Box, Badge} from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../Features/auth/authSlice";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 
 
 
@@ -23,6 +24,9 @@ export default function NavBar() {
     dispatch(reset())
     navigate('/somelandingpage')
   }
+
+  const quantity = useSelector(state=>state.cart.quantity)
+  console.log(quantity)
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -56,7 +60,7 @@ export default function NavBar() {
                   <Link to="/give-away">
                     <Button sx= {{color: "white"}}>Give Aways</Button>
                   </Link>
-                  <Link to="/about">
+                  {/* <Link to="/about">
                     <Button sx= {{color: "white"}}>About</Button>
                   </Link>
                   <Link to="/faq">
@@ -64,8 +68,11 @@ export default function NavBar() {
                   </Link>
                   <Link to="/contact">
                     <Button sx= {{color: "white"}}>Contact</Button>
-                  </Link>
+                  </Link> */}
                   <Button sx= {{color: "white"}} onClick={onLogout}>Log Out</Button>
+                  <Badge badgeContent={quantity}>
+                    <ShoppingCartIcon/>
+                  </Badge>
                   </>
                   ) 
                   : (<>

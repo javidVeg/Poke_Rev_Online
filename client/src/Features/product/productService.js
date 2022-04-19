@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://localhost:5003/api/product'
+const API_URL = 'http://localhost:5003/api/product/'
 
 //! Create new product
 
@@ -33,9 +33,23 @@ const getProduct= async (token) => {
     return response.data
 }
 
+//! Delete product
+const deleteProduct= async (productId, token) => {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+
+    const response = await axios.delete(API_URL + productId, config)
+
+    return response.data
+}
+
 const productService = {
     createProduct,
-    getProduct
+    getProduct,
+    deleteProduct
 }
 
 export default productService;
