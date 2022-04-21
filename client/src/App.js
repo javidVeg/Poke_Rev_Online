@@ -16,6 +16,7 @@ import Register from './Pages/Register';
 import Login from './Pages/Login';
 import StoreFront from './Pages/StoreFront';
 import UpdateStore from './Pages/UpdateStore';
+import Cart from './Pages/Cart';
 
 
 
@@ -38,6 +39,7 @@ function App() {
           {/* <Route path="/poke-rev-packs" element={<MessageBoard/>} /> */}
           <Route path="/updatestore" element={<UpdateStore/>} />
           <Route path="/store" element={<StoreFront/>} />
+          <Route path="/cart" element={<Cart/>}/>
           {/* <Route path="/give-away" element={<List/>} />
           <Route path="/about" element={<EntSubmit/>} />
           <Route path="/faq" element={<FormData/>} />

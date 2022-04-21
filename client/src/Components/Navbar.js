@@ -9,6 +9,7 @@ import IconButton from '@mui/material/IconButton';
 import { useSelector, useDispatch } from "react-redux";
 import { logout, reset } from "../Features/auth/authSlice";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import Cart from "../Pages/Cart";
 
 
 
@@ -70,9 +71,11 @@ export default function NavBar() {
                     <Button sx= {{color: "white"}}>Contact</Button>
                   </Link> */}
                   <Button sx= {{color: "white"}} onClick={onLogout}>Log Out</Button>
-                  <Badge badgeContent={quantity}>
-                    <ShoppingCartIcon/>
-                  </Badge>
+                  <Link to="/cart">
+                    <Badge badgeContent={quantity} color="warning">
+                      <ShoppingCartIcon sx={{color:'white'}}/>
+                    </Badge>
+                  </Link>
                   </>
                   ) 
                   : (<>
