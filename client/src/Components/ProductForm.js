@@ -1,3 +1,4 @@
+/* eslint-disable react/react-in-jsx-scope */
 import { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { Box } from '@mui/system'

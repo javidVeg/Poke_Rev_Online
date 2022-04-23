@@ -34,7 +34,7 @@ function App() {
           <Route path="/home" element={<Home/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
-          // DOES: this is a protected Route that redirects based on if the user is Authorized or not
+          {/* // DOES: this is a protected Route that redirects based on if the user is Authorized or not */}
           <Route element={<ProtectedRoutes />}>
           {/* <Route path="/poke-rev-packs" element={<MessageBoard/>} /> */}
           <Route path="/updatestore" element={<UpdateStore/>} />

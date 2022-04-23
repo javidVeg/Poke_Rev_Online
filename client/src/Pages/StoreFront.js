@@ -1,4 +1,4 @@
-import {useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router';
 import { useSelector, useDispatch } from 'react-redux';
 import { Grid, Box, Grow, Container } from '@mui/material';
@@ -42,8 +42,8 @@ export default function StoreFront() {
         <Container maxWidth='xl'>
            
             <Grid container alignItems='stretch' spacing={3} sx={{mb:10}}>
-                            {products.map((products) => (
-                                <Grid item xs={12} sm={12} md={6} lg={3}>
+                            {products.map((products,_id) => (
+                                <Grid key={_id}item xs={12} sm={12} md={6} lg={3}>
                                     <ProductItem key= {products._id} products={products} />
                                 </Grid>
                                 ))}
