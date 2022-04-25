@@ -105,7 +105,7 @@ export default function Cart() {
                 border='none'
                 height='1px'
             />
-            </Box>
+        </Box>
             
            <Grid
             >
@@ -114,7 +114,7 @@ export default function Cart() {
                     border='0.5px solid lightgray'
                     borderRadius='10px'
                     padding='20px'
-                    height='50vh'>
+                    height='45vh'>
                     <Typography
                         textAlign='center'
                         variant='h3'
@@ -149,12 +149,22 @@ export default function Cart() {
                         justifyContent='space-between'
                         >
                         <span>
+                            <b>
                             Estimated Subtotal
+                            </b>
                         </span>
                         <span>
+                            <b>
                             ${estTotal}
+                            </b>
                         </span>
                     </Box>
+                    <Box textAlign='center' padding='5px' sx={{color:'gray'}}>
+                    <Button variant='outlined' color='inherit'  sx={{color:'gray', width: '100%'}}>
+                        Checkout Now
+                    </Button>
+                    </Box>
+                   
                 </Box>
                     
             </Grid>
