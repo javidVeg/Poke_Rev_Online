@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-key */
+import { useState, useEffect } from "react";
 import { Add, Remove } from "@material-ui/icons";
 import { Typography, Grid, Button, Container, Box } from '@mui/material'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Divider } from "@material-ui/core";
+import StripCheckout from "react-stripe-checkout"
+import axios from "axios";
 
 
 
@@ -13,8 +16,32 @@ export default function Cart() {
     const quantity = useSelector(state=>state.cart.quantity)
     console.log(cart)
     const estTotal = cart.total + 8.99
+    const [stripeToken, setStripeToken] = useState(null)
+    const KEY = 'pk_test_51KsOhYErtVtSOuC6rebaOArf5ady1Dnmo6RPTvUGWooZsvc7XcYsdJqlJfX46PdwHqzIfRx1h2e9xjwAGzGxkIGN00zkYB4GYJ'
+
+    // const onToken = (token) => {
+    //     setStripeToken(token)
+    //     console.log(stripeToken)
+    // }
+
+    // useEffect(() => {
+    //     const makeRequest = async () => {
+    //         try {
+    //             console.log(stripeToken.id)
+    //             const res = await axios.post("http://localhost:5003/api/checkout/payment",
+    //             {
+    //             tokenId: stripeToken.id,
+    //             amount: 25000,
+    //             });
+    //         console.log(res.data);
+    //         } catch (err) {
+    //             console.log(err);
+    //         }
+    //     };
+    //     stripeToken && makeRequest();
+    // }, [stripeToken])
     
-    console.log(estTotal)
+    
   return (
     <Container padding='20px'>
         <Typography 
@@ -159,11 +186,13 @@ export default function Cart() {
                             </b>
                         </span>
                     </Box>
-                    <Box textAlign='center' padding='5px' sx={{color:'gray'}}>
-                    <Button variant='outlined' color='inherit'  sx={{color:'gray', width: '100%'}}>
-                        Checkout Now
-                    </Button>
-                    </Box>
+                    <form action="http://localhost:5003/create-checkout-session" method="POST">
+                        
+                                <button>
+                                    Checkout Now
+                                </button>
+                        
+                    </form>
                    
                 </Box>
                     
