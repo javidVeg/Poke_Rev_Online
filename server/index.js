@@ -9,7 +9,7 @@ const auth = require('./routes/Auth')
 const stripeRoute = require('./routes/stripe')
 const postRoutes = require('./routes/products')
 const {errorHandler} = require('./middleware/errorMiddleware')
-const bodyParser = require("body-parser")
+
 
 
 
@@ -20,10 +20,8 @@ connectDB();
 
 
 app.use(cors());
-app.use(express.static('public'));
 app.use(express.json());
-app.use(express.urlencoded({extended: true}))
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({extended: false}))
 app.use('/api/product', product)
 app.use('/api/auth', auth)
 app.use('/api/posts', postRoutes);

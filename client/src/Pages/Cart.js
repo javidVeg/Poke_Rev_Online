@@ -1,13 +1,14 @@
 /* eslint-disable react/jsx-key */
 import { useState, useEffect } from "react";
 import { Add, Remove } from "@material-ui/icons";
-import { Typography, Grid, Button, Container, Box } from '@mui/material'
+import { Typography, Grid, Button, Container, Box, CssBaseline } from '@mui/material'
 import { Link } from 'react-router-dom'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Divider } from "@material-ui/core";
 import StripCheckout from "react-stripe-checkout"
 import axios from "axios";
+
 
 
 
@@ -18,6 +19,7 @@ export default function Cart() {
     const estTotal = cart.total + 8.99
     const [stripeToken, setStripeToken] = useState(null)
     const KEY = 'pk_test_51KsOhYErtVtSOuC6rebaOArf5ady1Dnmo6RPTvUGWooZsvc7XcYsdJqlJfX46PdwHqzIfRx1h2e9xjwAGzGxkIGN00zkYB4GYJ'
+    const url = "http://localhost:5003"
 
     // const onToken = (token) => {
     //     setStripeToken(token)
@@ -40,9 +42,30 @@ export default function Cart() {
     //     };
     //     stripeToken && makeRequest();
     // }, [stripeToken])
+
+    const handleCheckout = () => {
+        console.log(cart)
+        
+        axios.post('http://localhost:5003/create-checkout-session', cart)
+
+          .then((response) => {
+            if (response.data.url) {
+              window.location.href = response.data.url;
+            }
+          })
+          .catch((err) => console.log(err.message));
+      };
+
+      
+        
+        
+    
+     
     
     
   return (
+      <>
+      <CssBaseline/>
     <Container padding='20px'>
         <Typography 
             variant='h3'
@@ -186,13 +209,16 @@ export default function Cart() {
                             </b>
                         </span>
                     </Box>
-                    <form action="http://localhost:5003/create-checkout-session" method="POST">
+                    {/* <form action="/create-checkout-session" method="POST"> */}
+                    
                         
-                                <button>
+                    
+                        
+                                <button onClick={() => handleCheckout()}>
                                     Checkout Now
                                 </button>
                         
-                    </form>
+                    
                    
                 </Box>
                     
@@ -203,6 +229,6 @@ export default function Cart() {
 
         </Grid>
     </Container>
-
+</>
   )
 }

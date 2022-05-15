@@ -49,7 +49,7 @@ router.get('/me', protect, getME)
 //         // DOES: creates token in the local storage header
 //         return res
 //         .header('x-auth-token', token)
-//         .header('access-control-expose-headers', 'x-auth-token')
+//         .header('control-expose-headers', 'x-auth-token')
 //         .send({ _id: users._id, name: users.firstName + " " + users.lastName, email: users.email})
         
 
