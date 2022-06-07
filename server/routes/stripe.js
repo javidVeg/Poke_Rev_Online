@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
                 currency: "usd",
                 product_data: {
                   name: item.products.product,
-                //   images: [item.products.image],
+                  images: [item.products.image.url],
                   description: item.products.details,
                   metadata: {
                     id: item.products.id,

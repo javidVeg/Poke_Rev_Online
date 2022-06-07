@@ -9,7 +9,11 @@ import {createProducts} from "../Features/product/productSlice"
 
 
 export default function ProductForm() {
+    const [fileData, setFileData] = useState();
+    const [images, setFile] = useState();
+
     const [productData, setProductData] = useState({ product: '', price: '', details: '', quantity: '', image: ''})
+    console.log(productData.image)
 
     const dispatch = useDispatch()
 
@@ -17,18 +21,38 @@ export default function ProductForm() {
         setProductData({ product: '', price: '', details: '', quantity: '', image: '' });
       };
 
+//? @ HANDLES IMAGE FROM FORM DATA AT ARRAY [0]
+      const handleImageUp = (e) => {
+          const file = e.target.files[0]
+          
+          transformFile(file)
+        }
+        
+//? @ TURNS IMAGE INTO BASE64  
+        const transformFile = (file) =>{
+            const reader = new FileReader()
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        dispatch(createProducts(productData))
-        clear()
-        window.location.reload(false)
-       
-    }
-
-
-  return (
-    <div>
+            if(file){
+                reader.readAsDataURL(file)
+                reader.onloadend = () => {
+                    setProductData({ ...productData, image: reader.result })   
+                }
+            }else{
+                setProductData('')
+            }    
+        }
+//? @ HANDLES SUBMITION OF ENTIRE FORM DATA
+        const handleSubmit = async (e) => {
+            e.preventDefault();
+            console.log(productData);
+            dispatch(createProducts(productData))
+            clear()
+            window.location.reload(false)
+           
+        }
+        
+        return (
+            <div>
         <Paper 
             elevation = {8}
             sx={{mt:10, display: 'inline-block'}}>
@@ -76,12 +100,19 @@ export default function ProductForm() {
                                 onChange={(e) => setProductData({ ...productData, quantity: e.target.value })} 
                             />
                             <div>
-                                <FileBase 
-                                    type="file" 
-                                    multiple={false} 
-                                    onDone={({ base64 }) => setProductData({ ...productData, image: base64 })}
-                                />
+                            <Button
+                                variant="contained"
+                                component="label"
+                                >
+                                Upload File
+                                <input
+                                    type="file"
+                                    accept= 'image/'
+                                    onChange= {handleImageUp} 
+                                    />
+                               </Button>
                             </div>
+                            <div>
                             <Button 
                                 variant="contained"
                                 sx={{m:1, p:1, mx: 'auto'}} 
@@ -90,6 +121,7 @@ export default function ProductForm() {
                                 fullWidth>
                                     Submit
                             </Button> 
+                            </div>
                         </form>
                 
                 </Box> 

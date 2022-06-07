@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const cloudinary = require('../middleware/cloudinary.config')
 const express= require('express')
 const asyncHandler = require('express-async-handler')
 const Crypto =require('crypto')
@@ -28,20 +29,47 @@ const createProducts = asyncHandler(async (req, res) => {
       res.status(400)
       throw new Error('Please add a text field')
     }
-    const products = await Products.create({
+    // const products = await Products.create({
             
-        // _id: randomString(),
-        product: req.body.product,
-        price: req.body.price,
-        details: req.body.details,
-        quantity: req.body.quantity,
-        image: req.body.image,
-    });
+    //     // _id: randomString(),
+    //     product: req.body.product,
+    //     price: req.body.price,
+    //     details: req.body.details,
+    //     quantity: req.body.quantity,
+    //     image: req.body.image,
+    // });
     
-    // await products.save();
+    const { product, price, details, quantity, image } = req.body;
+    console.log(image);
 
-  
-    res.status(200).json(products)
+    try {
+        if (image) {
+//? @ THIS UPLOADS THE IMAGE TO CLOUDINARY BEFORE IT GETS SAVED TO THE DATABASE
+            const uploadRes = await cloudinary.uploader.upload(image,{
+                upload_preset: 'pokeCave'
+            });
+            
+//? @ THIS GRABS THE SAVED CLOUDINARY IMAGE OBJECT AND SAVES IT TO THE DATABASE
+            if (uploadRes) {
+                const products = new Products({
+                    product,
+                    price,
+                    details,
+                    quantity,
+                    image: uploadRes
+                })
+                const savedProduct = await products.save()
+
+                res.status(200).send(savedProduct)
+                console.log(savedProduct)
+            }
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+
+    // res.status(200).json(products)
   })
 
 //TODO @des     Update Products

@@ -43,7 +43,7 @@ export default function ProductItem({  products, price }) {
                 <img 
                     component='image' 
                     height='250' 
-                    src={products.image || "./maxresdefault-2.jpg"}/>
+                    src={products.image.url || "./maxresdefault-2.jpg"}/>
                 </Grid>
                 <Typography varient='h6' sx={{p:2}}>{products.product}</Typography>
                 </ButtonBase>

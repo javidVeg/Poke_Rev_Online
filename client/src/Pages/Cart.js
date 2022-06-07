@@ -103,7 +103,7 @@ export default function Cart() {
                     padding='20px'
                     > 
                     <Box flex='2' display='flex'>
-                    <img width='150px' src={product.products.image}/>
+                    <img width='150px' src={product.products.image.url}/>
                     <Box 
                         padding='20px'
                         display='flex'
