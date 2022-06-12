@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
                 product_data: {
                   name: item.products.product,
                   images: [item.products.image.url],
-                  description: item.products.details,
+                  description: item.products.details.split(' ').splice(0, 20).join(' ') + '...',
                   metadata: {
                     id: item.products.id,
                   },
@@ -34,7 +34,7 @@ router.post("/", async (req, res) => {
         },
         mode: 'payment',
         success_url: 'http://localhost:3000/success',
-        cancel_url: 'http://localhost:3000/cancel'
+        cancel_url: 'http://localhost:3000/cart'
     });
 
     res.send({ url: session.url });

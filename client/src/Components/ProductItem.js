@@ -1,29 +1,39 @@
 /* eslint-disable react/prop-types */
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { deleteProducts } from '../Features/product/productSlice'
 import { Button, ButtonBase, Card, CardContent, CardMedia, Grid, Paper, Typography } from '@mui/material'
 import { addProduct } from '../Features/cart/cartSlice'
+import { Add, Remove } from "@material-ui/icons";
+import { borderRadius, Box } from '@mui/system'
 
 export default function ProductItem({  products, price }) {
+    const [ quantity, setQuantity ] = useState(1)
     const dispatch = useDispatch()
-    console.log(products)
+    // console.log(products)
 
     const openProduct = (e) => {
         
     }
 //! UPDATES CART /
     const handleClick = () => {
-        dispatch(addProduct({products, price: products.price}));
+        dispatch(addProduct({...products, price: products.price, quantity }));
     }
 
+    const handleQuantity = (type) => {
+        if(type === "dec") {
+            quantity > 1 && setQuantity(quantity -1)
+        } else {
+            setQuantity(quantity + 1)
+        }
+    }
   return (
     <div>
         <Card display='flex' flexDirection= 'column' sx={{
             display:'flex',
             flexDirection: 'column', 
             justifyContent: 'space-between', 
-            height:'500px', 
+            height:'550px', 
             position:'relative',
             mt:5,
             }}>
@@ -61,36 +71,39 @@ export default function ProductItem({  products, price }) {
                     display: 'flex',
                     justifyContent: 'start',
                     position: 'absolute',
-                    bottom: 40}}>
+                    bottom: 90}}>
                         Only {products.quantity} available!
                     </Typography>
+
+
                 </CardContent>
+                
 
 
-                <CardContent >
+                <CardContent>
                     <Typography variant='subtitle1' sx={{
                     display: 'flex',
                     justifyContent: 'start',
                     position: 'absolute',
-                    bottom: 10
-                    
-                }}>
+                    bottom: 50}}>
                         Starting at ${products.price}
-                
+{/* QUANTITY AMOUNT */}
+                    <Box sx={{ display:'flex', alignItems: 'center', ml: 2, mr: 2}}>
+                            <Remove onClick={() => handleQuantity("dec")} />
+                                <Box>{quantity}</Box>
+                            <Add onClick={() => handleQuantity("inc")} />
+                    </Box>
+               
+                    </Typography>
+                </CardContent>
                 <Button 
-                    sx={{ml: 1}} 
+                    sx={{ml: 2, mr:2, bottom: 10}} 
                     variant='outlined' 
                     onClick={handleClick}>
                     <Typography variant='caption'>
                         Add
                     </Typography>
                 </Button>
-               
-                    </Typography>
-                </CardContent>
-               
-
-        {/* <button onClick={() => dispatch(deleteProducts(products._id))}>delete</button> */}
         </Card>
     </div>
   )

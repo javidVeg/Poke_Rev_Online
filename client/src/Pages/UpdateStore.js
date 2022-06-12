@@ -11,8 +11,9 @@ export default function UpdateStore() {
         <Typography 
             align="center"
             variant="h2"
-            sx={{m:2, p:1, mx: 'auto'}}>Update Product</Typography>
+            sx={{m:2, p:1, mx: 'auto', mb: 5}}>Add Product</Typography>
         <ProductForm/>
+        
         
     </div>
   )
