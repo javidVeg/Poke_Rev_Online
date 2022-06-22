@@ -15,9 +15,9 @@ export default function ProductItem({  products, price }) {
     const openProduct = (e) => {
         
     }
-//! UPDATES CART /
+//! UPDATES CART 
     const handleClick = () => {
-        dispatch(addProduct({...products, price: products.price, quantity }));
+        dispatch(addProduct({...products, quantity }));
     }
 
     const handleQuantity = (type) => {

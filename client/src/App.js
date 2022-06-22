@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Button, Container, Typography } from "@mui/material";
-
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import NavBar from "./Components/Navbar";
-
 import Home from './Pages/Home';
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
@@ -27,6 +24,7 @@ function App() {
   return (
     <div>
       <Container>
+        <ToastContainer />
         <NavBar />
         <Routes>
           <Route path="/" element={<Navigate to= "/home" /> } />
@@ -46,7 +44,6 @@ function App() {
           <Route path="/contact" element={<SearchPatients/>} /> */}
           </Route>
         </Routes>
-        <ToastContainer />
       </Container>
     </div>
     

@@ -14,16 +14,16 @@ router.post("/", async (req, res) => {
               price_data: {
                 currency: "usd",
                 product_data: {
-                  name: item.products.product,
-                  images: [item.products.image.url],
-                  description: item.products.details.split(' ').splice(0, 20).join(' ') + '...',
+                  name: item.product,
+                  images: [item.image.url],
+                  description: item.details.split(' ').splice(0, 20).join(' ') + '...',
                   metadata: {
-                    id: item.products.id,
+                    id: item.id,
                   },
                 },
-                unit_amount: item.products.price * 100,
+                unit_amount: item.price * 100,
               },
-              quantity: item.products.quantity,
+              quantity: item.cartQuantity,
             };
           });
    console.log(line_items)

@@ -19,6 +19,7 @@ export default function NavBar() {
   
 //? useSelector brings in the user state and allows for the Protected routes to be accessed.//
   const { user } =useSelector((state) => state.auth)
+  const { quantity } = useSelector (state => state.cart)
 
   const onLogout = () => {
     dispatch(logout())
@@ -26,7 +27,6 @@ export default function NavBar() {
     navigate('/somelandingpage')
   }
 
-  const quantity = useSelector(state=>state.cart.quantity)
   console.log(quantity)
   return (
     <Box sx={{ flexGrow: 1 }}>

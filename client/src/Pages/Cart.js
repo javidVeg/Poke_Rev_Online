@@ -1,47 +1,32 @@
 /* eslint-disable react/jsx-key */
-import { useState, useEffect } from "react";
+import React, {useEffect } from 'react'
 import { Add, Remove } from "@material-ui/icons";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { Typography, Grid, Button, Container, Box, CssBaseline } from '@mui/material'
 import { Link } from 'react-router-dom'
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { Divider } from "@material-ui/core";
-import StripCheckout from "react-stripe-checkout"
+import { useSelector, useDispatch  } from 'react-redux'
 import axios from "axios";
-
+import { cartTotals, removeFromCart } from "../Features/cart/cartSlice";
 
 
 
 export default function Cart() {
-    const cart = useSelector(state=>state.cart)
-    const quantity = useSelector(state=>state.cart.quantity)
-    console.log(cart)
+    //! @ DELETE ?
+    // const [itemID, setItemID ] = useState('')
+    const cart = useSelector((state)=>state.cart)
+    const dispatch = useDispatch();
+
+    const handleDelete = (product) => {
+        dispatch(removeFromCart(product))   
+    }
+    useEffect(() => {
+        dispatch(cartTotals)
+        console.log(cart)
+    },[cart, dispatch])
+
+    
     const estTotal = cart.total + 8.99
-    const [stripeToken, setStripeToken] = useState(null)
-    const KEY = 'pk_test_51KsOhYErtVtSOuC6rebaOArf5ady1Dnmo6RPTvUGWooZsvc7XcYsdJqlJfX46PdwHqzIfRx1h2e9xjwAGzGxkIGN00zkYB4GYJ'
-    const url = "http://localhost:5003"
-
-    // const onToken = (token) => {
-    //     setStripeToken(token)
-    //     console.log(stripeToken)
-    // }
-
-    // useEffect(() => {
-    //     const makeRequest = async () => {
-    //         try {
-    //             console.log(stripeToken.id)
-    //             const res = await axios.post("http://localhost:5003/api/checkout/payment",
-    //             {
-    //             tokenId: stripeToken.id,
-    //             amount: 25000,
-    //             });
-    //         console.log(res.data);
-    //         } catch (err) {
-    //             console.log(err);
-    //         }
-    //     };
-    //     stripeToken && makeRequest();
-    // }, [stripeToken])
+    
 
     const handleCheckout = () => {
         console.log(cart)
@@ -55,14 +40,8 @@ export default function Cart() {
           })
           .catch((err) => console.log(err.message));
       };
-
-      
-        
-        
     
-     
-    
-    
+  
   return (
       <>
         <CssBaseline/>
@@ -87,7 +66,7 @@ export default function Cart() {
                         </Button>
                     </Link>
                     <Typography> 
-                            You currently have {quantity} items in your cart!
+                            You currently have {0} items in your cart!
                     </Typography>
                 </Grid>
 {/* THIS IS YOUR MAPPED CART ITEMS */}
@@ -95,7 +74,7 @@ export default function Cart() {
 {/* ITEM IN CART INFO */}
                     <Box  flex= '3' key={cart}>
                     {cart.products.map((product, pos) => (
-                        <Box display='flex' justifyContent='space-between' padding='20px'> 
+                        <Box display='flex' justifyContent='space-between' padding='20px' key={product._id}> 
                             <Box flex='2' display='flex'>
                                 <img width='150px' height= '150px' src={product.image.url}/>
                                     <Box padding='20px' display='flex' flexDirection='column' justifyContent='space-around' key={pos}>
@@ -127,6 +106,11 @@ export default function Cart() {
                                 <Box fontSize='30px' fontWeight='200'>
                                             ${product.price}
                                 </Box>
+                                
+                                <Button>
+                                <DeleteForeverIcon onClick={() => handleDelete(product)} sx={{color: 'red'}}/>
+                                </Button>
+                                
                             </Box>
                     </Box>
                     ))}
