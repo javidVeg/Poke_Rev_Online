@@ -19,8 +19,9 @@ export default function Cart() {
     const handleDelete = (product) => {
         dispatch(removeFromCart(product))   
     }
+    
     useEffect(() => {
-        dispatch(cartTotals)
+        dispatch(cartTotals())
         console.log(cart)
     },[cart, dispatch])
 
