@@ -6,6 +6,7 @@ import { Card, CardMedia } from '@mui/material'
 import { Grid, Box } from '@mui/material';
 import './Home.css';
 import OutlinedCard from '../Components/Card/HomeCard.js';
+import { YouTubeCard } from '../Components/YouTubeCard.js';
 
 
 
@@ -83,6 +84,7 @@ const Home = () => {
                             />  
                          </Card>
                      </Grid> */}
+                     <YouTubeCard/>
          
                 </Grid>
                      

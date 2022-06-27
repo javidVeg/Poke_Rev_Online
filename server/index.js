@@ -8,6 +8,7 @@ const users = require('./routes/products')
 const auth = require('./routes/Auth')
 const stripeRoute = require('./routes/stripe')
 const postRoutes = require('./routes/products')
+const youtubeRoute = require('./routes/youtube')
 const {errorHandler} = require('./middleware/errorMiddleware')
 
 
@@ -25,7 +26,8 @@ app.use(express.urlencoded({extended: true}))
 app.use('/api/product', product)
 app.use('/api/auth', auth)
 app.use('/api/posts', postRoutes);
-app.use('/create-checkout-session', stripeRoute)
+app.use('/create-checkout-session', stripeRoute);
+app.use('/search', youtubeRoute)
 
 app.use(errorHandler)
 

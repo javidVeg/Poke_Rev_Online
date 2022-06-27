@@ -73,11 +73,37 @@ const cartSlice = createSlice ({
             );
             state.quantity = quantity;
             state.total = total
-        }
+        },
+//? @DECREASE CART QUANTITY
+        decreaseProduct(state, action) {
+//! @ITEMINDEX GETS THE ACTUAL INDEX OF THE ITEM AMONGST THE ARRAY OF ITEMS
+           const itemIndex = state.products.findIndex(
+               product => product._id === action.payload._id
+           ) 
+//! @WE USE THIS INDEX TO SEE IF THE CARTQUANTITY IS GREATER THAN 1, IF IT IS TRUE THEN WE MINUS 1, IF NOT THEN REMOVE IT FROM THE CART
+           if(state.products[itemIndex].cartQuantity > 1){
+               state.products[itemIndex].cartQuantity -= 1
+
+               toast.info(`Decreased of ${action.payload.product} in shopping cart!`, {
+                position: 'top-left',
+            });
+           } else if(state.products[itemIndex].cartQuantity === 1){
+                const updatedCart = state.products.filter(
+                    (product) => product._id !== action.payload._id
+                );
+
+                state.products = updatedCart;
+                
+                toast.error(`${action.payload.product} removed from shopping cart!`, {
+                    position: 'top-left',
+                });
+            }
+            localStorage.setItem('products', JSON.stringify(state.products))
+        },
     }
 
 });
 
-export const { addProduct, removeFromCart, cartTotals } = cartSlice.actions
+export const { addProduct, removeFromCart, cartTotals, decreaseProduct } = cartSlice.actions
 export default cartSlice.reducer
 

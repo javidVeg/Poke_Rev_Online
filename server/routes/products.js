@@ -1,31 +1,27 @@
 // const express = require('express')
-// const { commentPost } = require('../controllers/postControllers') 
+// const { commentPost } = require('../controllers/postControllers')
 
 // const router = express.Router();
 
-
 // router.post('/commentPost', commentPost);
 
-// module.exports = router; 
-const express = require('express')
+// module.exports = router;
+const express = require("express");
 
-const { 
-    getProducts, 
-    createProducts, 
-    updateProducts, 
-    // commentProducts, 
-    deleteProducts } = require ('../controllers/productController');
+const {
+  getProducts,
+  createProducts,
+  updateProducts,
+  // commentProducts,
+  deleteProducts,
+} = require("../controllers/productController");
 
 const router = express.Router();
 
+const { protect } = require("../middleware/midd-auth");
 
-
-
-
-const { protect } = require('../middleware/midd-auth')
-
-router.route('/').get(getProducts).post( createProducts)
-router.route('/:id').delete(deleteProducts).put(updateProducts)
+router.route("/").get(getProducts).post(createProducts);
+router.route("/:id").delete(deleteProducts).put(updateProducts);
 
 // router.get('/', getPosts);
 // router.get('/:id', getPost);
