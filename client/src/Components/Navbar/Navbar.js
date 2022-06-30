@@ -7,9 +7,12 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import { useSelector, useDispatch } from "react-redux";
-import { logout, reset } from "../Features/auth/authSlice";
+import { logout, reset } from "../../Features/auth/authSlice";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Cart from "../Pages/Cart";
+import Cart from "../../Pages/Cart";
+import './Navbar.css'
+import { Gradient } from "@material-ui/icons";
+
 
 
 
@@ -29,9 +32,9 @@ export default function NavBar() {
 
   console.log(quantity)
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
-        <Toolbar>
+    <Box  >
+      <AppBar position="static" sx={{backgroundImage: 'linear-gradient(to bottom right, #0465db, #85beff)'}}>
+        <Toolbar >
           <IconButton
             size="large"
             edge="start"

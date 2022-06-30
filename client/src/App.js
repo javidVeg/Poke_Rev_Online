@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { Button, Container, Typography } from "@mui/material";
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
-import NavBar from "./Components/Navbar";
+import NavBar from "./Components/Navbar/Navbar";
 import Home from './Pages/Home';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
