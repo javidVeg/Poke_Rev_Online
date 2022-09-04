@@ -11,3 +11,30 @@
     max-width: 300px;
     margin: auto;
   }
+
+  .body1 {
+    background: linear-gradient(-45deg, #f6f209, #f11515, #206fc4, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 5s ease infinite;
+    height: 100%;
+    
+  }
+  .body2 {
+    background: url('./Images/Holo.png');
+    height: 100%;
+  }
+
+
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  

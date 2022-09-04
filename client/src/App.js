@@ -14,6 +14,8 @@ import Login from './Pages/Login';
 import StoreFront from './Pages/StoreFront';
 import UpdateStore from './Pages/UpdateStore';
 import Cart from './Pages/Cart';
+import "./App.css"
+import image1 from "./Images/Holo.png"
 
 
 
@@ -22,7 +24,10 @@ function App() {
 
 
   return (
-    <div>
+    <div  className='body1 '>
+      <div className='body2'>
+
+      
       <Container>
         <ToastContainer />
         <NavBar />
@@ -45,6 +50,7 @@ function App() {
           </Route>
         </Routes>
       </Container>
+      </div>
     </div>
     
 
