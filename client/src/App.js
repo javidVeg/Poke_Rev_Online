@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 import { Button, Container, Typography } from "@mui/material";
 import { BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
 import NavBar from "./Components/Navbar/Navbar";
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import "@fortawesome/fontawesome-free/js/all.js";
@@ -16,7 +16,7 @@ import UpdateStore from './Pages/UpdateStore';
 import Cart from './Pages/Cart';
 import "./App.css"
 import image1 from "./Images/Holo.png"
-
+import faded from "./Images/fadedwhite.png"
 
 
 
@@ -24,11 +24,9 @@ function App() {
 
 
   return (
-    <div  className='body1 '>
-      <div className='body2'>
-
+    <div  className=''>
       
-      <Container>
+      
         <ToastContainer />
         <NavBar />
         <Routes>
@@ -49,8 +47,8 @@ function App() {
           <Route path="/contact" element={<SearchPatients/>} /> */}
           </Route>
         </Routes>
-      </Container>
-      </div>
+      
+     
     </div>
     
 
