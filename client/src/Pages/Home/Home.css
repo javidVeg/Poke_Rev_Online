@@ -56,10 +56,33 @@
   margin-top: -14%;
 }
 
-@media only screen and (max-width: 850px) {
+@media only screen and (min-width: 1200px) {
+  .gradient-layer {
+    height: 200vh;
+  }
+  
+  .holo-layer {
+    height: 200vh;
+  }
+
+}
+
+@media only screen and (min-width: 851px) and (max-width: 1199px) {
   .logo-container img{
     width: 100%;
     margin-top: 0px;
+  }
+  .holo-layer {
+    height: 120vh;
+  }
+  .gradient-layer {
+    height: 120vh;
+  }
+  .youtube-vid {
+    margin-top: 100%;
+    width: 100%;
+    margin-left: -20px;
+    
   }
 }
 
@@ -67,6 +90,18 @@
   .logo-container img{
     width: 100%;
     margin-top: 0px;
+  }
+  .holo-layer {
+    height: 90vh;
+  }
+  .gradient-layer {
+    height: 90vh;
+  }
+  .youtube-vid {
+    margin-top: 80%;
+    width: 100%;
+    margin-left: -20px;
+    
   }
  
 }
@@ -76,6 +111,18 @@
     width: 110%;
     margin-top: 0px;
   }
+  .holo-layer {
+    height: 90vh;
+  }
+  .gradient-layer {
+    height: 90vh;
+  }
+  .youtube-vid {
+    margin-top: 60%;
+    width: 100%;
+    margin-left: -20px;
+    
+  }
  
 }
 
@@ -83,6 +130,57 @@
   .logo-container img{
     width: 120%;
     margin-top: 0px;
+  }
+  .holo-layer {
+    height: 90vh;
+  }
+  .gradient-layer {
+    height: 90vh;
+  }
+  .youtube-vid {
+    margin-top: 40%;
+    width: 100%;
+    margin-left: -20px;
+    
+  }
+ 
+}
+
+@media only screen and (max-width: 550px) {
+  .logo-container img{
+    width: 125%;
+    margin-top: 100px;
+  }
+  .holo-layer {
+    height: 90vh;
+  }
+  .gradient-layer {
+    height: 90vh;
+  }
+  .youtube-vid {
+    margin-top: 20%;
+    width: 100%;
+    margin-left: -20px;
+    
+  }
+ 
+}
+@media only screen and (max-width: 450px) {
+  .logo-container img{
+    width: 125%;
+    margin-top: 100px;
+  }
+  .holo-layer {
+    height: 90vh;
+  }
+  .gradient-layer {
+    height: 90vh;
+  }
+  .youtube-vid {
+    margin-top: -30%;
+    width: 100%;
+    margin-left: -20px;
+    
   }
  
 }
