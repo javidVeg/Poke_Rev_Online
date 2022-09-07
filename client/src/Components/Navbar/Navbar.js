@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import * as React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import { Box, Badge } from '@mui/material';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,6 +12,7 @@ import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import Cart from "../../Pages/Cart";
 import { Gradient } from "@material-ui/icons";
 import pika from "../../Images/pika.png"
+import { IoMdMenu } from "react-icons/io"
 import './Navbar.css'
 
 
@@ -24,66 +25,74 @@ export default function NavBar() {
   //? useSelector brings in the user state and allows for the Protected routes to be accessed.//
   const { user } = useSelector((state) => state.auth)
   const { quantity } = useSelector(state => state.cart)
+  const [isOpen, setOpen] = useState(false)
 
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
-    navigate('/somelandingpage')
+    // navigate('/somelandingpage')
   }
 
   console.log(quantity)
   return (
-    <div className="header-1" >
-      <AppBar  style={{ background: 'white', width: "100vw" }}>
-        <Toolbar >
 
-          <div className="pika">
-            <img width="10%" src={pika} alt="pika" />
-          </div>
-          {user ? (
-            <>
-              <Link style={{ textDecoration: 'none' }} to="/home">
-                <Button sx={{ color: "black" }}>Home</Button>
-              </Link>
-              <Link style={{ textDecoration: 'none' }} to="/poke-rev-packs">
-                <Button disabled sx={{ color: "black" }}>PokeRev Packs</Button>
-              </Link>
-              <Link style={{ textDecoration: 'none' }} to="/updatestore">
-                <Button sx={{ color: "black" }}>Update Store</Button>
-              </Link>
-              <Link style={{ textDecoration: 'none' }} to="/store">
-                <Button sx={{ color: "black" }}>Store</Button>
-              </Link>
-              <Link style={{ textDecoration: 'none' }} to="/give-away">
-                <Button disabled sx={{ color: "black" }}>Give Aways</Button>
-              </Link>
-              {/* <Link to="/about">
-                    <Button sx= {{color: "white"}}>About</Button>
-                  </Link>
-                  <Link to="/faq">
-                    <Button sx= {{color: "white"}}>FAQ</Button>
-                  </Link>
-                  <Link to="/contact">
-                    <Button sx= {{color: "white"}}>Contact</Button>
-                  </Link> */}
-              <Button sx={{ color: "black" }} onClick={onLogout}>Log Out</Button>
-              <Link to="/cart">
-                <Badge badgeContent={quantity} color="warning">
-                  <ShoppingCartIcon sx={{ color: 'black' }} />
-                </Badge>
-              </Link>
-            </>
-          )
-            : (<>
-              <Link to='/login'>
-                <Button sx={{ color: "white" }}>Log In</Button>
-              </Link>
-              <Link to='/register'>
-                <Button sx={{ color: "white" }}>Register</Button>
-              </Link>
-            </>)}
-        </Toolbar>
-      </AppBar>
+    <div className='Nav-bar'>
+      <div className="left-side">
+        <img width="10%" src={pika} alt="pika" />
+      </div>
+      <div className="right-side">
+        {user ? (
+          <>
+            <div className="links" id={isOpen ? "hidden" : ""}>
+              <a onClick={() => setOpen(!isOpen)} href="/home">
+                Home
+              </a>
+              {/* <a onClick={() => setOpen(!isOpen)} href="/updatestore">
+                Update Store
+              </a> */}
+              <a onClick={() => setOpen(!isOpen)} href="/store">
+                Store
+              </a>
+              <a onClick={() => setOpen(!isOpen)} href="/contact">
+                Contact
+              </a>
+              <a onClick={() => setOpen(!isOpen)} href="/about">
+                About
+              </a>
+
+            </div>
+            
+            <a onClick={onLogout} href="/somelandingpage">
+              Log Out
+            </a>
+            <a href="/cart">
+              <Badge badgeContent={quantity} color="warning">
+                <ShoppingCartIcon sx={{ color: 'black' }} />
+              </Badge>
+            </a>
+
+            <div id="hamburger" className="">
+              <IoMdMenu color="black" size={40} onClick={() => setOpen(!isOpen)} />
+            </div>
+          </>
+        )
+          : (<>
+            <a href="/login">
+              Log in
+            </a>
+            <a onClick={onLogout} href="/register">
+              Register
+            </a>
+            
+
+          </>)}
+          
+        {/* <div className='pt-5 z-20'>
+                <button id="menu" onClick={() => setOpen(!isOpen)}><RiMenu2Fill color='white' size={40} /></button>
+              </div> */}
+      </div>
     </div>
+
+
   );
 }
