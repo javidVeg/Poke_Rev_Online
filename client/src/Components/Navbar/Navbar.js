@@ -43,7 +43,7 @@ export default function NavBar() {
       <div className="right-side">
         {user ? (
           <>
-            <div className="links" id={isOpen ? "hidden" : ""}>
+            <div className="links" id={isOpen ? "hidden-menu" : ""}>
               <a onClick={() => setOpen(!isOpen)} href="/home">
                 Home
               </a>
