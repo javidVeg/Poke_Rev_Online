@@ -33,8 +33,8 @@ export default function NavBar() {
 
   console.log(quantity)
   return (
-    <div  >
-      <AppBar position="absolute" style={{ background: 'white' }}>
+    <div className="header-1" >
+      <AppBar  style={{ background: 'white', width: "100vw" }}>
         <Toolbar >
 
           <div className="pika">

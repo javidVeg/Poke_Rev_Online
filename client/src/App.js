@@ -25,7 +25,7 @@ function App() {
 
 
   return (
-    <div  className=''>
+    <div  className='main'>
       
       
         <ToastContainer />
