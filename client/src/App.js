@@ -17,6 +17,7 @@ import Cart from './Pages/Cart';
 import "./App.css"
 import image1 from "./Images/Holo.png"
 import faded from "./Images/fadedwhite.png"
+import Footer from './Components/Footer/Footer';
 
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="/contact" element={<SearchPatients/>} /> */}
           </Route>
         </Routes>
+        <Footer/>
       
      
     </div>

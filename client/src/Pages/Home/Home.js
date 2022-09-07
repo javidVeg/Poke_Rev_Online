@@ -2,7 +2,6 @@ import React from "react";
 import { Grid } from "@mui/material";
 import "./Home.css";
 import { YouTubeCard } from "../../Components/YouTube/YouTubeCard";
-import Footer from "../../Components/Footer/Footer.js";
 import ImageSlider from "../../Components/ImageSlider.js";
 import fadewhite from "../../Images/fadedwhite.png"
 const Home = () => {
@@ -15,12 +14,12 @@ const Home = () => {
       <div className="gradient-layer">
         <div className="holo-layer">
           <div className="home-container">
-            <img src="/Poke-Rev-home.png" width="100%" />
+            <img src="/Poke-Rev-home.png" width="90%" />
 
             {/* <Grid sx={{ width: '300px', height: '300px', margin: 5 }}>
             <ImageSlider slides={slides} />
           </Grid> */}
-            {/* <Footer /> */}
+           
           </div>
         </div>
         <div className="youtube-card">

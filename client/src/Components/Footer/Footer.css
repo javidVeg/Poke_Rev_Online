@@ -1,6 +1,120 @@
 .footer {
-    width:100%;
-    height:10%; 
-    position:absolute;
-    left:0;
-  }
+    width: 100%;
+    min-height: 30vh;
+    background-color: rgb(205, 204, 204);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+}
+
+.footer-container {
+    width: 80%;
+    
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    font-family: "Courier New", Courier, monospace;
+}
+
+.footer-top{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+    gap: 200px; 
+}
+
+.nav-col{
+    text-align: left;
+    margin-top: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    
+     
+}
+.nav-col h1 {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.nav-col a {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: grey;
+    text-decoration: none;
+}
+
+
+.find-col {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: white;
+    margin-top: 10px;
+   
+}
+.find-col a {
+    margin-right: 30px;
+}
+
+
+
+.memoji-col {
+    justify-self: center;
+    align-self: center;
+}
+
+.memoji-real{
+    width: 150px;
+    min-width: 115px;
+}
+
+.divider {
+    border-top: 3px solid;
+    border-radius: 8px;
+    width: 150px;
+    color: grey;
+}
+
+@media only screen and (max-width: 900px) {
+    .footer-top{
+        gap: 150px; 
+    }
+    
+
+}
+
+
+@media only screen and (max-width: 767px) {
+    .footer {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .footer-top {
+        flex-direction: column;
+        gap: 50px;
+
+    }
+
+    .memoji-col {
+        margin-top: 15%;
+        margin-bottom: 20px;
+    }
+    .footer-bottom {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}
+
+

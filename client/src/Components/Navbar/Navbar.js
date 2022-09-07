@@ -34,36 +34,28 @@ export default function NavBar() {
   console.log(quantity)
   return (
     <div  >
-      <AppBar position="static" sx={{ backgroundColor: "white" }}>
+      <AppBar position="absolute" style={{ background: 'white' }}>
         <Toolbar >
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
 
-          </IconButton>
           <div className="pika">
-            <img width="10%" src={pika} alt="pika"/>
+            <img width="10%" src={pika} alt="pika" />
           </div>
           {user ? (
             <>
-              <Link to="/home">
+              <Link style={{ textDecoration: 'none' }} to="/home">
                 <Button sx={{ color: "black" }}>Home</Button>
               </Link>
-              <Link to="/poke-rev-packs">
-                <Button sx={{ color: "black" }}>PokeRev Packs</Button>
+              <Link style={{ textDecoration: 'none' }} to="/poke-rev-packs">
+                <Button disabled sx={{ color: "black" }}>PokeRev Packs</Button>
               </Link>
-              <Link to="/updatestore">
+              <Link style={{ textDecoration: 'none' }} to="/updatestore">
                 <Button sx={{ color: "black" }}>Update Store</Button>
               </Link>
-              <Link to="/store">
+              <Link style={{ textDecoration: 'none' }} to="/store">
                 <Button sx={{ color: "black" }}>Store</Button>
               </Link>
-              <Link to="/give-away">
-                <Button sx={{ color: "black" }}>Give Aways</Button>
+              <Link style={{ textDecoration: 'none' }} to="/give-away">
+                <Button disabled sx={{ color: "black" }}>Give Aways</Button>
               </Link>
               {/* <Link to="/about">
                     <Button sx= {{color: "white"}}>About</Button>
