@@ -15,7 +15,7 @@
 
 }
 
-.home-container{
+.logo-container{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,7 +24,10 @@
   width: 100%;
 }
 
-
+.logo-container img{
+  width: 85%;
+  margin-top: -60px;
+}
 
 .youtube-card {
   width: 100%;
@@ -51,4 +54,35 @@
   width: 100vw;
   background-color: white;
   margin-top: -14%;
+}
+
+@media only screen and (max-width: 850px) {
+  .logo-container img{
+    width: 100%;
+    margin-top: 0px;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .logo-container img{
+    width: 100%;
+    margin-top: 0px;
+  }
+ 
+}
+
+@media only screen and (max-width: 750px) {
+  .logo-container img{
+    width: 110%;
+    margin-top: 0px;
+  }
+ 
+}
+
+@media only screen and (max-width: 650px) {
+  .logo-container img{
+    width: 120%;
+    margin-top: 0px;
+  }
+ 
 }

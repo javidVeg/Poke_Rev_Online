@@ -13,8 +13,8 @@ const Home = () => {
     <div>
       <div className="gradient-layer">
         <div className="holo-layer">
-          <div className="home-container">
-            <img src="/Poke-Rev-home.png" width="90%" />
+          <div className="logo-container">
+            <img src="/Poke-Rev-home.png"  />
 
             {/* <Grid sx={{ width: '300px', height: '300px', margin: 5 }}>
             <ImageSlider slides={slides} />
