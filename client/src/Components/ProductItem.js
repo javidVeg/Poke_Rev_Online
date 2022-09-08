@@ -52,6 +52,7 @@ export default function ProductItem({ products, price }) {
           flexDirection: "column",
           justifyContent: "space-between",
           height: "550px",
+          width: "300px",
           position: "relative",
           mt: 5,
         }}

@@ -56,6 +56,10 @@
   margin-top: -14%;
 }
 
+.home-store{
+  margin-top: -700px;
+}
+
 @media only screen and (min-width: 1200px) {
   .gradient-layer {
     height: 200vh;

@@ -4,7 +4,7 @@ import axios from "axios";
 import './YouTubeCard.css' 
 
 const URL =
-  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCUHYM7gs-GZpRGEsskTEqzQ&maxResults=1&order=date&key=AIzaSyAA-9xyfDYnj_ngMe3steC1YVSVim2jiB0";
+  "https://youtube.googleapis.com/youtube/v3/search?part=snippet&channelId=UCUHYM7gs-GZpRGEsskTEqzQ&maxResults=2&order=date&key=AIzaSyAA-9xyfDYnj_ngMe3steC1YVSVim2jiB0";
 
 export const YouTubeCard = () => {
   const [videoData, SetVideoData] = useState("");
@@ -23,15 +23,14 @@ export const YouTubeCard = () => {
   console.log(videos);
 
   return (
-    <Box
-      component="div"
-      className='video-container'
-    >
+    <div className='video-container'>
       {videos && (
         <div>
           {videos.map((data) => {
             const videoSource = `https://www.youtube.com/embed/${data.id.videoId}`;
+            console.log(videoSource)
             return (
+              <div key={videos.id}>
               <iframe
                 key={videos.id}
                 className= 'video'
@@ -39,11 +38,13 @@ export const YouTubeCard = () => {
                 title="YouTube video player"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               ></iframe>
+
+              </div>
             );
           })}
           <div className='shadow'></div>
         </div>
       )}
-    </Box>
+    </div>
   );
 };

@@ -4,6 +4,7 @@ import "./Home.css";
 import { YouTubeCard } from "../../Components/YouTube/YouTubeCard";
 import ImageSlider from "../../Components/ImageSlider.js";
 import fadewhite from "../../Images/fadedwhite.png"
+import HomeItems from "../../Components/HomeItems/HomeItems";
 const Home = () => {
   const slides = [
     { url: "http://localhost:3000/MGB1.jpg", title: "Image 1" },
@@ -14,20 +15,21 @@ const Home = () => {
       <div className="gradient-layer">
         <div className="holo-layer">
           <div className="logo-container">
-            <img src="/Poke-Rev-home.png"  />
+            <img src="/Poke-Rev-home.png" />
 
             {/* <Grid sx={{ width: '300px', height: '300px', margin: 5 }}>
             <ImageSlider slides={slides} />
           </Grid> */}
-           
+
           </div>
         </div>
         <div className="youtube-card">
           <div className="youtube-vid"><YouTubeCard /></div>
-          
+
         </div>
       </div>
       <div className="white"></div>
+      <div className="home-store"><HomeItems /></div>
     </div>
   );
 };
