@@ -16,20 +16,23 @@ const Home = () => {
         <div className="holo-layer">
           <div className="logo-container">
             <img src="/Poke-Rev-home.png" />
-
             {/* <Grid sx={{ width: '300px', height: '300px', margin: 5 }}>
             <ImageSlider slides={slides} />
           </Grid> */}
 
           </div>
-        </div>
-        <div className="youtube-card">
-          <div className="youtube-vid"><YouTubeCard /></div>
+          <div className="white">
+            <div className="youtube-card">
+              <div className="youtube-vid"><YouTubeCard /></div>
+
+            </div>
+      <div className="home-store"><HomeItems /></div>
+          </div>
 
         </div>
+
       </div>
-      <div className="white"></div>
-      <div className="home-store"><HomeItems /></div>
+
     </div>
   );
 };

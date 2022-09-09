@@ -2,211 +2,173 @@
   background: linear-gradient(-45deg, #f6f209, #f11515, #206fc4, #23d5ab);
   background-size: 400% 400%;
   animation: gradient 5s ease infinite;
-  height: 200vh;
+  height: 100%;
   width: 100%;
+  z-index: 300;
+  backdrop-filter: blur(8px);
+  position: relative;
+
 
 
 }
 
 .holo-layer {
   background: url('../../Images/Holo.png');
-  height: 200vh;
+  height: 100%;
   width: 100%;
+  z-index: 20;
+  position: relative;
+
+
+
 
 }
 
-.logo-container{
+.logo-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 2;
   width: 100%;
+  height: 100vh;
+
+
 }
 
-.logo-container img{
+.logo-container img {
   width: 85%;
   margin-top: -60px;
 }
 
 .youtube-card {
   width: 100%;
-  height: 100vh;
+  margin-top: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-image: url('../../Images/fadedwhite.png');
-  background-repeat: no-repeat;
-  background-size: 100vw;
-  margin-top: -70%;
-
-  
 }
 
-.youtube-vid{
+.youtube-vid {
   width: 80%;
   align-self: center;
-  margin-top: 80%;
 }
 
-.white{
-  height: 50vw;
+.white {
+  height: 100%;
   width: 100vw;
-  background-color: white;
-  margin-top: -14%;
+  background-color: rgba(90, 90, 90, 0.438);
+  z-index: 10;
+  position: relative;
+  backdrop-filter: blur(10px);
+  border-top: 2px solid #fdfbfb78;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
+
+
 }
 
-/* .home-store{
-  margin-top: 150px;
-} */
+.home-store {
+  
+
+  align-self: center;
+  background-color: rgba(252, 251, 251, 0.438);
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid white;
+  box-shadow: 0px 5px 10px 1px black;
+}
+
 
 @media only screen and (min-width: 1200px) {
-  .gradient-layer {
-    height: 200vh;
-  }
-  
-  .holo-layer {
-    height: 200vh;
-  }
-  .home-store{
+
+  .home-store {
     margin-top: 0px;
   }
+
 
 }
 
 @media only screen and (min-width: 851px) and (max-width: 1199px) {
-  .logo-container img{
+  .logo-container img {
     width: 100%;
     margin-top: 0px;
   }
-  .holo-layer {
-    height: 120vh;
-  }
-  .gradient-layer {
-    height: 120vh;
-  }
-  .youtube-vid {
-    margin-top: 100%;
-    width: 100%;
-    margin-left: -20px;
-    
-  }
-  .home-store{
+
+  .home-store {
     margin-top: 150px;
   }
 }
 
 @media only screen and (max-width: 850px) {
-  .logo-container img{
+  .logo-container img {
     width: 100%;
     margin-top: 0px;
   }
-  .holo-layer {
-    height: 90vh;
-  }
-  .gradient-layer {
-    height: 90vh;
-  }
-  .youtube-vid {
-    margin-top: 80%;
-    width: 100%;
-    margin-left: -20px;
-    
-  }
-  .home-store{
+
+  .home-store {
     margin-top: 150px;
   }
 
- 
+
 }
 
 @media only screen and (max-width: 750px) {
-  .logo-container img{
+  .logo-container img {
     width: 110%;
     margin-top: 0px;
   }
-  .holo-layer {
+
+  /* .holo-layer {
     height: 90vh;
   }
   .gradient-layer {
     height: 90vh;
-  }
-  .youtube-vid {
-    margin-top: 60%;
-    width: 100%;
-    margin-left: -20px;
-    
-  }
-  .home-store{
+  } */
+
+  .home-store {
     margin-top: 150px;
+
+
   }
- 
+
 }
 
 @media only screen and (max-width: 650px) {
-  .logo-container img{
+  .logo-container img {
     width: 120%;
     margin-top: 0px;
   }
-  .holo-layer {
-    height: 90vh;
-  }
-  .gradient-layer {
-    height: 90vh;
-  }
-  .youtube-vid {
-    margin-top: 40%;
-    width: 100%;
-    margin-left: -20px;
-    
-  }
-  .home-store{
+
+  .home-store {
     margin-top: 150px;
   }
- 
+
 }
 
 @media only screen and (max-width: 550px) {
-  .logo-container img{
+  .logo-container img {
     width: 125%;
     margin-top: 100px;
   }
-  .holo-layer {
-    height: 90vh;
-  }
-  .gradient-layer {
-    height: 90vh;
-  }
-  .youtube-vid {
-    margin-top: 50%;
-    width: 100%;
-    margin-left: -20px;
-    
-  }
-  .home-store{
+
+  .home-store {
     margin-top: 150px;
   }
- 
+
 }
+
 @media only screen and (max-width: 400px) {
-  .logo-container img{
+  .logo-container img {
     width: 125%;
     margin-top: 100px;
   }
-  .holo-layer {
-    height: 90vh;
+
+  .home-store {
+    margin-top: 100px;
   }
-  .gradient-layer {
-    height: 90vh;
-  }
-  .youtube-vid {
-    margin-top: 0%;
-    width: 100%;
-    margin-left: -20px;
-    
-  }
-  .home-store{
-  margin-top: 100px;
-}
- 
+
 }
