@@ -55,6 +55,8 @@ export default function ProductItem({ products, price }) {
           width: "300px",
           position: "relative",
           mt: 5,
+          boxShadow: 8,
+          borderRadius: 2
         }}
       >
         <ButtonBase
@@ -66,19 +68,19 @@ export default function ProductItem({ products, price }) {
           }}
           onClick={openProduct}
         >
-          <Grid container sx={{ justifyContent: "center" }}>
+          <Grid container sx={{ justifyContent: "center", padding: '10px' }}>
             <img
               component="image"
               height="250"
               src={products.image.url || "./maxresdefault-2.jpg"}
             />
           </Grid>
-          <Typography varient="h6" sx={{ p: 2 }}>
+          <Typography varient="h6" sx={{ p: 1.5 }}>
             {products.product}
           </Typography>
         </ButtonBase>
-        <div display="flex" justifyContent="space-between" margin="20px">
-          <CardContent>
+        <div display="flex" justifyContent="space-between" margin="10px">
+          <CardContent sx={{padding: "15px", marginTop: "-10px"}}>
             <Box component="div">
               <Typography variant="caption" color="gray" component="p">
                 {products.details.split(" ").splice(0, 20).join(" ")}...
@@ -95,7 +97,7 @@ export default function ProductItem({ products, price }) {
               display: "flex",
               justifyContent: "start",
               position: "absolute",
-              bottom: 90,
+              bottom: 100,
             }}
           >
             Only {products.quantity} available!
@@ -122,7 +124,7 @@ export default function ProductItem({ products, price }) {
           </Typography>
         </CardContent>
         <Button
-          sx={{ ml: 2, mr: 2, bottom: 10 }}
+          sx={{ ml: 2, mr: 2, bottom: 12 }}
           variant="outlined"
           onClick={handleClick}
         >

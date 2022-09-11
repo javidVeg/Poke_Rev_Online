@@ -11,7 +11,7 @@ import "@fortawesome/fontawesome-free/js/all.js";
 import ProtectedRoutes from "../src/Components/ProtectedRoutes"
 import Register from './Pages/Register';
 import Login from './Pages/Login';
-import StoreFront from './Pages/StoreFront';
+import StoreFront from './Pages/Store/StoreFront';
 import UpdateStore from './Pages/UpdateStore';
 import Cart from './Pages/Cart';
 import "./App.css"

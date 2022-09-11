@@ -26,7 +26,7 @@ const Home = () => {
               <div className="youtube-vid"><YouTubeCard /></div>
 
             </div>
-      <div className="home-store"><HomeItems /></div>
+            <div className="home-store"><HomeItems /></div>
           </div>
 
         </div>
