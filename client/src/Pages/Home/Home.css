@@ -4,9 +4,9 @@
   animation: gradient 5s ease infinite;
   height: 100%;
   width: 100%;
-  z-index: 300;
+  
   backdrop-filter: blur(8px);
-  position: relative;
+ 
 
 
 
@@ -16,8 +16,8 @@
   background: url('../../Images/Holo.png');
   height: 100%;
   width: 100%;
-  z-index: 20;
-  position: relative;
+ 
+
 
 
 
@@ -59,7 +59,7 @@
   height: 100%;
   width: 100%;
   background-color: rgba(90, 90, 90, 0.438);
-  z-index: 10;
+ 
   position: relative;
   backdrop-filter: blur(10px);
   border-top: 2px solid #fdfbfb78;
