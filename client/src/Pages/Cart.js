@@ -61,7 +61,7 @@ export default function Cart() {
   return (
     <>
       <CssBaseline />
-      <Container padding="20px">
+      <Container padding="20px" flex >
         <Typography
           variant="h3"
           textAlign="center"
@@ -152,8 +152,6 @@ export default function Cart() {
                 </Box>
               </Box>
             ))}
-            {/* @END ITEM IN CART INFO */}
-            <hr background-color="#eee" border="none" height="1px" />
           </Box>
 
           <Grid>
@@ -164,6 +162,7 @@ export default function Cart() {
               borderRadius="10px"
               padding="20px"
               height="45vh"
+              
             >
               <Typography textAlign="center" variant="h3">
                 Order Summary
