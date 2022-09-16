@@ -18,6 +18,7 @@ import "./App.css"
 import image1 from "./Images/Holo.png"
 import faded from "./Images/fadedwhite.png"
 import Footer from './Components/Footer/Footer';
+import Contact from './Pages/Contact/Contact';
 
 
 
@@ -44,8 +45,8 @@ function App() {
           <Route path="/cart" element={<Cart/>}/>
           {/* <Route path="/give-away" element={<List/>} />
           <Route path="/about" element={<EntSubmit/>} />
-          <Route path="/faq" element={<FormData/>} />
-          <Route path="/contact" element={<SearchPatients/>} /> */}
+          <Route path="/faq" element={<FormData/>} />*/}
+          <Route path="/contact" element={<Contact/>} /> 
           </Route>
         </Routes>
         <Footer/>

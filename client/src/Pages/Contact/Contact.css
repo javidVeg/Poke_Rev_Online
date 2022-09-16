@@ -1,0 +1,23 @@
+.section1{
+    width: 100%;
+    height: 100vh;
+    background-color: greenyellow;
+}
+
+.section2{
+    width: 100%;
+    height: 100vh;
+    background-color: blue;
+}
+
+.section3{
+    width: 100%;
+    height: 100vh;
+    background-color: plum;
+}
+
+.section4{
+    width: 100%;
+    height: 100vh;
+    background-color: tomato;
+}
